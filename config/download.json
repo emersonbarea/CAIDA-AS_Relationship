@@ -1,0 +1,11 @@
+{
+  "DOWNLOAD": {
+    "URL": "http://data.caida.org/datasets/as-relationships/",
+    "SERIAL": "serial-2/",
+    "DOWNLOAD_FILE": "20190501.as-rel2.txt.bz2",
+    "FILE": "20190501.as-rel2.txt"
+  },
+  "PARSE": {
+    "PREFIX_DEFINITION": "AUTOMATIC"
+  }
+}
