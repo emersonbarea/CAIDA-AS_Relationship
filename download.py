@@ -7,7 +7,7 @@ import bz2
 import os
 
 
-def download(download_path, config_path):
+def download(config_path):
 
     # get download config
     with open(config_path + 'download.json', 'r') as config_file:
@@ -16,11 +16,11 @@ def download(download_path, config_path):
     url = config['DOWNLOAD']['URL']
     serial = config['DOWNLOAD']['SERIAL']
     download_file = config['DOWNLOAD']['DOWNLOAD_FILE']
-    file = config['DOWNLOAD']['FILE']
+    download_path = config['DOWNLOAD']['DOWNLOAD_PATH']
 
     # download CAIDA AS-Relationship file
     output_zip_file = download_path + download_file
-    output_file = download_path + file
+    output_file = download_path + download_file[:-4]
 
     with urllib.request.urlopen(url + serial + download_file) as response, \
             open(output_zip_file, 'wb') as out_file:
@@ -38,6 +38,5 @@ def download(download_path, config_path):
 
 
 if __name__ == '__main__':
-    download_path = './CAIDA_AS-Relationship_files/'
     config_path = './config/'
-    download(download_path, config_path)
+    download(config_path)

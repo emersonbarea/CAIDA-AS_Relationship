@@ -14,5 +14,5 @@ net = Containernet(controller=Controller)
 info('*** Adding controller\n')
 net.addController('c0')
 
-info('*** Adding ASes (docker containers)\n')
+info('*** Adding ASes containers\n')
 

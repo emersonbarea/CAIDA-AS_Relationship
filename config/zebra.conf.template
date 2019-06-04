@@ -1,0 +1,8 @@
+log file /tmp/*AS*-zebra.log
+hostname *AS*
+password en
+enable password en
+
+interface lo
+  ip address 127.0.0.1/32
+
