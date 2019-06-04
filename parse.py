@@ -255,9 +255,11 @@ class Parse(object):
         file_bgpd.close()
 
     def graph(self):
+        """
+            Write graph configuration
+        """
         if os.path.exists(self.graph_dir + 'data.js'):
             os.remove(self.graph_dir + 'data.js')
-
         print('    - nodes')
         with open(self.graph_dir + 'nodes.js', 'w') as write_to_file:
             write_to_file.write('var nodes = new vis.DataSet([\n')
@@ -274,7 +276,6 @@ class Parse(object):
         write_to_file.close()
 
 
-
 if __name__ == '__main__':
     start = time.time()
     config_path = './config/'
@@ -286,23 +287,19 @@ if __name__ == '__main__':
     parse.datafames()
     t2 = time.time()
     print(t2 - t1)
-    #parse.mininet_commands()
+    parse.mininet_commands()
     t3 = time.time()
     print(t3 - t2)
-    #parse.quagga_commands()
+    parse.quagga_commands()
     t4 = time.time()
     print(t4 - t3)
     print('Write to file')
-    #parse.write_to_file()
+    parse.write_to_file()
     t5 = time.time()
     print(t5 - t4)
     print('Graph')
     parse.graph()
     t6 = time.time()
     print(t6 - t5)
-
-
-
-
     end = time.time()
     print('Total: ' + str(end - start))
