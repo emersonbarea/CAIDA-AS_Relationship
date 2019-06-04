@@ -4,6 +4,7 @@
     "FILE": "20190501.as-rel2.txt",
     "OUTPUT_DIR": "./output/",
     "CONTAINER": "MININET",
-    "PREFIX_DEFINITION": "AUTOMATIC"
+    "PREFIX_DEFINITION": "AUTOMATIC",
+    "GRAPH_DIR": "./graph/js/"
   }
 }

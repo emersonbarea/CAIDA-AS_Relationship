@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <title>Network | Dynamic Data</title>
+
+    <script type="text/javascript" src="./bower_components/vis/dist/vis.js"></script>
+    <link href="./bower_components/vis/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1000px;
+            height: 800px;
+            border: 1px solid lightgray;
+        }
+
+        p {
+            max-width:600px;
+        }
+
+        h4 {
+            margin-bottom:3px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript" src="./js/nodes.js"></script>
+<script type="text/javascript" src="./js/edges.js"></script>
+
+<script type="text/javascript">
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>

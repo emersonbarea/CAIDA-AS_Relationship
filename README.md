@@ -1,5 +1,11 @@
 # CAIDA-AS_Relationship
 # CAIDA-AS_Relationship
 
-apt install python3-pip
-pip3 install networkx matplotlib
+using sudo or with root privileges:
+
+apt install python3-pip npm
+pip3 install pandas
+#npm install -g bower
+
+#cd topology_graph
+#bower install NeXt

@@ -18,6 +18,7 @@ class Parse(object):
         self.output_dir = self.config['PARSE']['OUTPUT_DIR']
         self.container_type = self.config['PARSE']['CONTAINER']
         self.prefix_definition_type = self.config['PARSE']['PREFIX_DEFINITION']
+        self.graph_dir = self.config['PARSE']['GRAPH_DIR']
 
     def df_from_file(self):
         # read CAIDA file to Pandas data frame
@@ -253,6 +254,26 @@ class Parse(object):
                 file_bgpd.write(row[1])
         file_bgpd.close()
 
+    def graph(self):
+        if os.path.exists(self.graph_dir + 'data.js'):
+            os.remove(self.graph_dir + 'data.js')
+
+        print('    - nodes')
+        with open(self.graph_dir + 'nodes.js', 'w') as write_to_file:
+            write_to_file.write('var nodes = new vis.DataSet([\n')
+            for AS in self.list_unique_as:
+                write_to_file.write('{id: %s, label: "%s"},\n' % (AS, AS))
+            write_to_file.write(']);')
+        write_to_file.close()
+        print('    - edges')
+        with open(self.graph_dir + 'edges.js', 'w') as write_to_file:
+            write_to_file.write('var edges = new vis.DataSet([\n')
+            for row in self.df_from_file.itertuples():
+                write_to_file.write('{from: %s, to: %s},\n' % (row[0], row[1]))
+            write_to_file.write(']);')
+        write_to_file.close()
+
+
 
 if __name__ == '__main__':
     start = time.time()
@@ -265,15 +286,23 @@ if __name__ == '__main__':
     parse.datafames()
     t2 = time.time()
     print(t2 - t1)
-    parse.mininet_commands()
+    #parse.mininet_commands()
     t3 = time.time()
     print(t3 - t2)
-    parse.quagga_commands()
+    #parse.quagga_commands()
     t4 = time.time()
     print(t4 - t3)
     print('Write to file')
-    parse.write_to_file()
+    #parse.write_to_file()
     t5 = time.time()
     print(t5 - t4)
+    print('Graph')
+    parse.graph()
+    t6 = time.time()
+    print(t6 - t5)
+
+
+
+
     end = time.time()
     print('Total: ' + str(end - start))
