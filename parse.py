@@ -185,6 +185,16 @@ class Parse(object):
         if os.path.exists(self.output_dir):
             shutil.rmtree(self.output_dir)
         os.makedirs(self.output_dir + 'ASes')
+        # Topology graph
+        print('    - Topology graph')
+        with open(self.output_dir + 'topology_graph_nodes.output', 'w') as file_graph_nodes:
+            for AS in self.list_unique_as:
+                file_graph_nodes.write('%s\n' % (AS))
+        file_graph_nodes.close()
+        with open(self.output_dir + 'topology_graph_edges.output', 'w') as file_graph_edges:
+            for row in self.df_from_file.itertuples():
+                file_graph_edges.write('%s, %s\n' % (row[0], row[1]))
+        file_graph_edges.close()
         # Mininet
         print('    - Mininet')
         with open(self.output_dir + 'topology.py', 'w') as file_topology:
