@@ -22,6 +22,11 @@ def download(config_path):
     output_zip_file = download_path + download_file
     output_file = download_path + download_file[:-4]
 
+    # create download directory
+    if os.path.exists(download_path):
+        shutil.rmtree(download_path)
+    os.makedirs(download_path)
+
     with urllib.request.urlopen(url + serial + download_file) as response, \
             open(output_zip_file, 'wb') as out_file:
         shutil.copyfileobj(response, out_file)

@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import pandas as pd
 import json
 import ipaddress
@@ -82,7 +84,6 @@ class Parse(object):
 
         elif self.prefix_definition_type == 'MANUAL':  # ("AUTOMATIC" | "MANUAL")
             pass
-
 
     def mininet_commands(self):
         """
