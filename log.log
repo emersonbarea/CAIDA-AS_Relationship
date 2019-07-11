@@ -1,0 +1,23 @@
+
+Parameters:
+                 - Download path:  ./CAIDA_AS-Relationship_files/ 
+                 - Download file name:  ./CAIDA_AS-Relationship_files/20190501.as-rel2.txt 
+                 - Output configuration directory:  ./output/ 
+                 - Topology length ("FULL", "STUB"):  STUB 
+                 - Container type ("MININET", "DOCKER"):  MININET 
+                 - Prefix IP definition type ("AUTOMATIC", "MANUAL"):  AUTOMATIC 
+                 - Output graph directory:  ./graph/js/ 
+
+Number of ASes:  64758 
+Number of stub ASes:  23092  (Number of ASes not stub:  41666 )
+
+time - Populating peering dataframe (as1, as2, peer1_IP, peer2_IP, peer_mask, prefix1, prefix2): 1.874875545501709
+
+time - Creating Mininet commands: 23.551562547683716
+
+time - Creating Quagga commands: 51.35703754425049
+
+time - Writing files configuration: 84.08415508270264
+
+Total execution time: 161.02694082260132
+

@@ -3,6 +3,7 @@
     "DOWNLOAD_PATH": "./CAIDA_AS-Relationship_files/",
     "FILE": "20190501.as-rel2.txt",
     "OUTPUT_DIR": "./output/",
+    "TOPOLOGY_LENGTH": "STUB",
     "CONTAINER": "MININET",
     "PREFIX_DEFINITION": "AUTOMATIC",
     "GRAPH_DIR": "./graph/js/"
