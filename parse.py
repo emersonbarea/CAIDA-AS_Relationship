@@ -199,7 +199,7 @@ class Parse(object):
         self.df_create_routerid_temp = pd.DataFrame(list_routerid)
         self.df_create_routerid_temp.set_index('AS', inplace=True)
         self.df_create_routerid = pd.DataFrame(
-            self.df_create_routerid_temp.reset_index()[['AS', 'router_ID']].groupby(by='AS').min(axis=1))
+            self.df_create_routerid_temp.reset_index()[['AS', 'router_ID']].groupby(by='AS').min())
 
         self.df_create_routerid = self.df_create_routerid.astype({'router_ID': str})
         for i, row in self.df_create_routerid.iterrows():
