@@ -3,6 +3,6 @@
 Ubuntu Server 18.04 LTS
 
 ```
-apt install python3-pip npm
+sudo apt install python3-pip
 pip3 install pandas
 ```
