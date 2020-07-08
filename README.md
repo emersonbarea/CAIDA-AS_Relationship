@@ -1,5 +1,4 @@
 # CAIDA-AS_Relationship
-# CAIDA-AS_Relationship
 
 Ubuntu Server 18.04 LTS
 
